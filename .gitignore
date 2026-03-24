@@ -1,0 +1,46 @@
+node_modules
+dist
+dist-ssr
+*.local
+.DS_Store
+.turbo
+
+# Next.js
+.next/
+out/
+
+# Rust / Tauri
+**/src-tauri/target/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.sw?
+
+# Environment
+.env
+.env.*
+
+# OS
+Thumbs.db
+
+# Private
+PLAN.md
+homebrew-devkit/
+apps/web/
+
+# npm (project uses pnpm)
+package-lock.json
+
+# Build artifacts
+*.dmg
+*.app
+*.exe
+*.msi
+*.deb
+*.AppImage

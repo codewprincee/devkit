@@ -1,0 +1,8 @@
+{
+  "identifier": "default",
+  "description": "Default capabilities for API Pad",
+  "windows": ["main"],
+  "permissions": [
+    "core:default"
+  ]
+}

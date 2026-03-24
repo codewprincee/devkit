@@ -1,0 +1,27 @@
+[package]
+name = "devkit"
+version = "0.1.0"
+edition = "2021"
+description = "DevKit — Developer Toolbox"
+
+[lib]
+name = "devkit_lib"
+crate-type = ["lib", "cdylib", "staticlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-opener = "2"
+tauri-plugin-dialog = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+walkdir = "2"
+aes-gcm = "0.10"
+base64 = "0.22"
+rand = "0.8"
+reqwest = { version = "0.12", features = ["json", "rustls-tls"], default-features = false }
+tokio = { version = "1", features = ["full"] }
+notify = "6"
+sysinfo = "0.33"

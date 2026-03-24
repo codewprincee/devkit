@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { AppSidebar, type ToolId } from './AppSidebar';
+import { ErrorBoundary } from './ErrorBoundary';
 import { PortManApp } from './portman/PortManApp';
 import EnvGuardApp from './envguard/EnvGuardApp';
 import ApiPadApp from './apipad/ApiPadApp';
@@ -16,19 +17,29 @@ export function DevKitShell() {
       <AppSidebar activeTool={activeTool} onChangeTool={setActiveTool} />
       <main className="flex-1 overflow-hidden">
         <div className={activeTool === 'portman' ? 'h-full' : 'hidden'}>
-          <PortManApp active={activeTool === 'portman'} />
+          <ErrorBoundary toolName="PortMan">
+            <PortManApp active={activeTool === 'portman'} />
+          </ErrorBoundary>
         </div>
         <div className={activeTool === 'envguard' ? 'h-full' : 'hidden'}>
-          <EnvGuardApp />
+          <ErrorBoundary toolName="EnvGuard">
+            <EnvGuardApp />
+          </ErrorBoundary>
         </div>
         <div className={activeTool === 'apipad' ? 'h-full' : 'hidden'}>
-          <ApiPadApp />
+          <ErrorBoundary toolName="API Pad">
+            <ApiPadApp />
+          </ErrorBoundary>
         </div>
         <div className={activeTool === 'loglens' ? 'h-full' : 'hidden'}>
-          <LogLensApp />
+          <ErrorBoundary toolName="LogLens">
+            <LogLensApp />
+          </ErrorBoundary>
         </div>
         <div className={activeTool === 'devdash' ? 'h-full' : 'hidden'}>
-          <DevDashApp />
+          <ErrorBoundary toolName="DevDash">
+            <DevDashApp />
+          </ErrorBoundary>
         </div>
       </main>
     </>

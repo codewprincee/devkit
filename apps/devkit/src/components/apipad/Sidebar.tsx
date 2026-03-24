@@ -11,6 +11,8 @@ interface SidebarProps {
   environments: ApiEnvironment[];
   history: HistoryEntry[];
   activeRequestId: string | null;
+  open?: boolean;
+  onClose?: () => void;
   onSelectRequest: (collectionId: string, request: ApiRequest) => void;
   onAddRequest: (collectionId: string) => void;
   onAddFolder: (collectionId: string) => void;
@@ -35,6 +37,8 @@ export function Sidebar({
   environments,
   history,
   activeRequestId,
+  open,
+  onClose,
   onSelectRequest,
   onAddRequest,
   onAddFolder,
@@ -50,7 +54,7 @@ export function Sidebar({
   const [activeTab, setActiveTab] = useState<SidebarTab>('collections');
 
   return (
-    <aside className="flex flex-col w-64 border-r border-gray-200 bg-white shrink-0">
+    <aside className={`flex flex-col w-64 border-r border-gray-200 bg-white shrink-0 ${open ? 'fixed inset-y-0 left-[60px] z-50 lg:relative lg:left-0' : 'hidden lg:flex'}`}>
       {/* Tab bar */}
       <div className="flex border-b border-gray-200">
         {sidebarTabs.map((tab) => {

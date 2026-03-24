@@ -76,18 +76,22 @@ export function AppSidebar({ activeTool, onChangeTool }: AppSidebarProps) {
       </div>
 
       {tools.map((tool) => (
-        <button
-          key={tool.id}
-          onClick={() => onChangeTool(tool.id)}
-          title={tool.label}
-          className={`flex h-10 w-10 items-center justify-center rounded-lg transition-colors ${
-            activeTool === tool.id
-              ? 'bg-white/15 text-white'
-              : 'text-gray-500 hover:text-gray-300 hover:bg-white/5'
-          }`}
-        >
-          {tool.icon}
-        </button>
+        <div key={tool.id} className="group relative">
+          <button
+            onClick={() => onChangeTool(tool.id)}
+            aria-label={tool.label}
+            className={`flex h-10 w-10 items-center justify-center rounded-lg transition-colors ${
+              activeTool === tool.id
+                ? 'bg-white/15 text-white'
+                : 'text-gray-500 hover:text-gray-300 hover:bg-white/5'
+            }`}
+          >
+            {tool.icon}
+          </button>
+          <span className="pointer-events-none absolute left-14 top-1/2 -translate-y-1/2 whitespace-nowrap rounded-md bg-gray-900 px-2.5 py-1 text-xs font-medium text-white opacity-0 shadow-lg transition-opacity group-hover:opacity-100">
+            {tool.label}
+          </span>
+        </div>
       ))}
     </aside>
   );

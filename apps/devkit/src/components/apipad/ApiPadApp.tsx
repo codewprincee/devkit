@@ -99,6 +99,7 @@ export default function ApiPadApp() {
     [importCollection]
   );
 
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const hasContent = activeRequest !== null;
 
   return (
@@ -107,10 +108,17 @@ export default function ApiPadApp() {
         environments={environments}
         onSetActiveEnvironment={setActiveEnvironment}
         onImport={() => setImportOpen(true)}
+        onToggleSidebar={() => setSidebarOpen(!sidebarOpen)}
       />
 
       <div className="flex flex-1 overflow-hidden">
+        {sidebarOpen && (
+          <div className="fixed inset-0 z-40 bg-black/20 lg:hidden" onClick={() => setSidebarOpen(false)} />
+        )}
+
         <Sidebar
+          open={sidebarOpen}
+          onClose={() => setSidebarOpen(false)}
           collections={collections}
           environments={environments}
           history={history}

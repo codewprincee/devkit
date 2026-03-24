@@ -6,14 +6,25 @@ interface HeaderProps {
   environments: ApiEnvironment[];
   onSetActiveEnvironment: (id: string) => void;
   onImport: () => void;
+  onToggleSidebar?: () => void;
 }
 
-export function Header({ environments, onSetActiveEnvironment, onImport }: HeaderProps) {
+export function Header({ environments, onSetActiveEnvironment, onImport, onToggleSidebar }: HeaderProps) {
   const active = environments.find((e) => e.isActive);
 
   return (
     <header className="flex items-center justify-between border-b border-gray-200 bg-white px-4 sm:px-6 py-2.5">
       <div className="flex items-center gap-3">
+        <button
+          type="button"
+          onClick={onToggleSidebar}
+          className="lg:hidden flex h-7 w-7 items-center justify-center rounded-lg text-gray-500 hover:bg-gray-100"
+          aria-label="Toggle sidebar"
+        >
+          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
         <div className="flex items-center gap-2">
           <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500 to-violet-500">
             <svg className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

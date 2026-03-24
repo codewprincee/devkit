@@ -135,6 +135,19 @@ export function Header({
                 <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182" />
               </svg>
             </button>
+
+            {/* Keyboard shortcuts hint */}
+            <div className="hidden sm:flex items-center gap-1.5 ml-2 pl-2 border-l border-gray-200">
+              <span className="text-[10px] text-gray-400">
+                <kbd className="rounded bg-gray-100 px-1 py-0.5 font-mono text-gray-500">⌘O</kbd> Open
+              </span>
+              <span className="text-[10px] text-gray-400">
+                <kbd className="rounded bg-gray-100 px-1 py-0.5 font-mono text-gray-500">⌘F</kbd> Search
+              </span>
+              <span className="text-[10px] text-gray-400">
+                <kbd className="rounded bg-gray-100 px-1 py-0.5 font-mono text-gray-500">⌘B</kbd> Bookmarks
+              </span>
+            </div>
           </>
         )}
       </div>

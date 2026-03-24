@@ -16,7 +16,7 @@
 
   --text-primary: #1a1a2e;
   --text-secondary: #6b6b80;
-  --text-tertiary: #9e9eb0;
+  --text-tertiary: #6b6b80;
   --text-inverse: #ffffff;
 
   --accent: #6366f1;
@@ -56,7 +56,7 @@
   --duration-normal: 200ms;
   --duration-slow: 350ms;
 
-  --detail-width: 340px;
+  --detail-width: min(340px, 90vw);
 
   display: flex;
   flex-direction: column;
